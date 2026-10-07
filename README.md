@@ -33,6 +33,7 @@
 | [Frank-nju/ailaw_frontend](https://github.com/Frank-nju/ailaw_frontend) | 1 个已合并 PR —— 用户隔离 + Codespaces / Render 部署支持 |
 | [TanhCustom](https://github.com/ruzhai/TanhCustom) | 昇腾 Ascend C 自定义 Tanh 算子 · 910B + CANN 9.0.0 端到端验证 |
 | [werewolfparty](https://github.com/ruzhai/werewolfparty) | 中文 AI 狼人杀桌面应用：7 个 LLM Bot · 5 家厂商统一适配层 |
+| [feishu-ai-agent-skills](https://github.com/ruzhai/feishu-ai-agent-skills) | 飞书机器人的两个 OpenClaw 自定义 Skill · 课程作业，与同学合作，本仓库只含我负责的部分 |
 | [intelligent-computing-systems-labs](https://github.com/ruzhai/intelligent-computing-systems-labs) | GQA 的纯 NumPy 从零实现，官方测试 8/8 通过 |
 | [NJU-SICP2024FALL](https://github.com/ruzhai/NJU-SICP2024FALL) | SICP 课程作业与实验：hw01–hw07、hw10 + lab00/01/05/10（Python 为主，附官方 `.ok` 自动评分） |
 | [我的 PR 汇总](https://github.com/search?q=author%3Aruzhai+type%3Apr&type=pullrequests) | 向 4 个上游仓库提过 7 个 PR，其中 4 个已合并 |
