@@ -16,13 +16,12 @@
 **模型组件**：不用深度学习框架，纯 NumPy 把注意力这类组件从零写一遍。
 
 - **[智能计算系统课程实验](https://github.com/ruzhai/intelligent-computing-systems-labs)** —— 实验1：GQA（分组查询注意力）的纯 NumPy 从零实现，含 Python 循环版与 `np.repeat` 向量化版。官方测试 8/8 通过；基准结论是个反直觉的结果：**向量化并不稳赢** —— `np.repeat` 会实际复制 K/V，分组大时拷贝开销反超它省下的循环开销。
-- **[智能计算系统课程实验](https://github.com/ruzhai/intelligent-computing-systems-labs)** —— 实验1：GQA（分组查询注意力）的纯 NumPy 从零实现，含 Python 循环版与 `np.repeat` 向量化版。官方测试 8/8 通过；基准结论是个反直觉的结果：**向量化并不稳赢** —— `np.repeat` 会实际复制 K/V，分组大时拷贝开销反超它省下的循环开销。
 
 ## 二、大模型编排 —— LangGraph 与多智能体
 
 - **[Shiori](https://github.com/mayuri0v0/Shiori)** —— 基于 LangChain + LangGraph 的桌面任务 agent。我在上游合并了 **3 个 PR**（合计 +2570/−161）：界面重构、学术文献检索能力恢复 + 多层安全防护机制。**在该仓库的贡献者里排第一**（18 commits，原作者 10）。
   → [我在 Shiori 的合并记录](https://github.com/mayuri0v0/Shiori/pulls?q=is%3Apr+author%3Aruzhai)
-- **AI 狼人杀** —— Next.js 15 + Electron + Prisma 的中文 AI 狼人杀桌面应用：7 个 LLM Bot 跑标准 8 人局（含警长竞选与警徽移交）。5 家厂商 11 个模型条目收敛在一个适配层下；整局进度以双 JSON 队列存成数据，可中断续跑。*（仓库尚未公开）*
+- **[AI 狼人杀（werewolfparty）](https://github.com/ruzhai/werewolfparty)** —— Next.js 15 + Electron + Prisma 的中文 AI 狼人杀桌面应用：7 个 LLM Bot 跑标准 8 人局（含警长竞选与警徽移交）。5 家厂商 11 个模型条目收敛在一个适配层下；整局进度以双 JSON 队列存成数据，可中断续跑。
 
 ---
 
@@ -31,6 +30,7 @@
 | | |
 |---|---|
 | [mayuri0v0/Shiori](https://github.com/mayuri0v0/Shiori) | 3 个已合并 PR —— 我目前最实的一块对外贡献 |
+| [werewolfparty](https://github.com/ruzhai/werewolfparty) | 中文 AI 狼人杀桌面应用：7 个 LLM Bot · 5 家厂商统一适配层 |
 | [intelligent-computing-systems-labs](https://github.com/ruzhai/intelligent-computing-systems-labs) | GQA 的纯 NumPy 从零实现，官方测试 8/8 通过 |
 | [NJU-SICP2024FALL](https://github.com/ruzhai/NJU-SICP2024FALL) | SICP 课程作业与实验：hw01–hw10 + lab00–lab10（Python / Scheme / SQL，官方 `.ok` 自动评分） |
 | [我的 PR 汇总](https://github.com/search?q=author%3Aruzhai+type%3Apr&type=pullrequests) | 向 4 个上游仓库提过 7 个 PR，其中 4 个已合并 |
