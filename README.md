@@ -7,12 +7,16 @@
 
 ---
 
-## 一、底层算子 —— 昇腾 Ascend C
+## 一、底层实现 —— 算子与模型组件
 
-在 CANN 上用 Ascend C 手写自定义算子：host 侧推导 tiling 参数，kernel 侧写核函数。
+**算子**：在 CANN 上用 Ascend C 手写自定义算子，host 侧推导 tiling 参数，kernel 侧写核函数。
 
 - **TanhCustom** —— 昇腾 Ascend C 自定义 `Tanh` 算子，tiling 模板编程：host 侧下发参数，kernel 侧用纯 POD 结构体接收。已在 **910B + CANN 9.0.0** 上端到端验证，精度判据 `1e-3` 通过。关键取舍是中间量必须升到 `fp32` —— `fp16` 在 `x≈1` 附近的分辨率约 `9.77e-4`，直接算 `e^x − e^-x` 会把两个已被舍入成同一个数的量相减、小值被抹成 0，而绝对误差恰好小到容差判据抓不住。另附一份实际踩过的移植坑清单。*（代码目前沉淀在 GitCode，GitHub 侧整理中）*
-- **GQA / Attention 等大模型基础组件的从零实现** —— 《智能计算系统》课程实验合集。*（尚未公开）*
+
+**模型组件**：不用深度学习框架，纯 NumPy 把注意力这类组件从零写一遍。
+
+- **[智能计算系统课程实验](https://github.com/ruzhai/intelligent-computing-systems-labs)** —— 实验1：GQA（分组查询注意力）的纯 NumPy 从零实现，含 Python 循环版与 `np.repeat` 向量化版。官方测试 8/8 通过；基准结论是个反直觉的结果：**向量化并不稳赢** —— `np.repeat` 会实际复制 K/V，分组大时拷贝开销反超它省下的循环开销。
+- **[智能计算系统课程实验](https://github.com/ruzhai/intelligent-computing-systems-labs)** —— 实验1：GQA（分组查询注意力）的纯 NumPy 从零实现，含 Python 循环版与 `np.repeat` 向量化版。官方测试 8/8 通过；基准结论是个反直觉的结果：**向量化并不稳赢** —— `np.repeat` 会实际复制 K/V，分组大时拷贝开销反超它省下的循环开销。
 
 ## 二、大模型编排 —— LangGraph 与多智能体
 
@@ -27,6 +31,7 @@
 | | |
 |---|---|
 | [mayuri0v0/Shiori](https://github.com/mayuri0v0/Shiori) | 3 个已合并 PR —— 我目前最实的一块对外贡献 |
+| [intelligent-computing-systems-labs](https://github.com/ruzhai/intelligent-computing-systems-labs) | GQA 的纯 NumPy 从零实现，官方测试 8/8 通过 |
 | [NJU-SICP2024FALL](https://github.com/ruzhai/NJU-SICP2024FALL) | SICP 课程作业与实验：hw01–hw10 + lab00–lab10（Python / Scheme / SQL，官方 `.ok` 自动评分） |
 | [我的 PR 汇总](https://github.com/search?q=author%3Aruzhai+type%3Apr&type=pullrequests) | 向 4 个上游仓库提过 7 个 PR，其中 4 个已合并 |
 
