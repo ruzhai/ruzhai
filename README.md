@@ -11,7 +11,7 @@
 
 **算子**：在 CANN 上用 Ascend C 手写自定义算子，host 侧推导 tiling 参数，kernel 侧写核函数。
 
-- **[TanhCustom](https://github.com/ruzhai/TanhCustom)** —— 昇腾 Ascend C 自定义 `Tanh` 算子，tiling 模板编程：host 侧下发参数，kernel 侧用纯 POD 结构体接收。已在 **910B + CANN 9.0.0** 上端到端验证，精度判据 `1e-3` 通过。关键取舍是中间量必须升到 `fp32` —— `fp16` 在 `x≈1` 附近的分辨率约 `9.77e-4`，直接算 `e^x − e^-x` 会把两个已被舍入成同一个数的量相减、小值被抹成 0，而绝对误差恰好小到容差判据抓不住。另附一份实际踩过的移植坑清单。
+- **[TanhCustom](https://github.com/ruzhai/TanhCustom)** —— 昇腾 Ascend C 自定义 `Tanh` 算子，tiling 模板编程：host 侧下发参数，kernel 侧用纯 POD 结构体接收。在 **910B + CANN 9.0.0** 上跑通过精度判据 `1e-3` 的端到端校验（那次运行没有随仓库保留；仓库内可复现的是一份不需要 NPU 的离线自测脚本）。关键取舍是中间量必须升到 `fp32` —— `fp16` 在 `x≈1` 附近的分辨率约 `9.77e-4`，直接算 `e^x − e^-x` 会把两个已被舍入成同一个数的量相减、小值被抹成 0，而绝对误差恰好小到容差判据抓不住。另附一份实际踩过的移植坑清单。
 
 **模型组件**：不用深度学习框架，纯 NumPy 把注意力这类组件从零写一遍。
 
@@ -31,7 +31,7 @@
 |---|---|
 | [mayuri0v0/Shiori](https://github.com/mayuri0v0/Shiori) | 3 个已合并 PR —— 我目前最实的一块对外贡献 |
 | [Frank-nju/ailaw_frontend](https://github.com/Frank-nju/ailaw_frontend) | 1 个已合并 PR —— 用户隔离 + Codespaces / Render 部署支持 |
-| [TanhCustom](https://github.com/ruzhai/TanhCustom) | 昇腾 Ascend C 自定义 Tanh 算子 · 910B + CANN 9.0.0 端到端验证 |
+| [TanhCustom](https://github.com/ruzhai/TanhCustom) | 昇腾 Ascend C 自定义 Tanh 算子 · 910B + CANN 9.0.0 上跑通端到端精度校验 |
 | [werewolfparty](https://github.com/ruzhai/werewolfparty) | 中文 AI 狼人杀桌面应用：7 个 LLM Bot · 5 家厂商统一适配层 |
 | [feishu-ai-agent-skills](https://github.com/ruzhai/feishu-ai-agent-skills) | 飞书机器人的两个 OpenClaw 自定义 Skill · 课程作业，与同学合作，本仓库只含我负责的部分 |
 | [intelligent-computing-systems-labs](https://github.com/ruzhai/intelligent-computing-systems-labs) | GQA 的纯 NumPy 从零实现，官方测试 8/8 通过 |
