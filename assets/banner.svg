@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="ruzhai — 从昇腾 NPU 上的算子实现到大模型智能体编排">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#171c24"/>
+    </linearGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4493f8"/>
+      <stop offset="1" stop-color="#8957e5"/>
+    </linearGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="#30363d" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="300" rx="18" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="300" rx="18" fill="url(#dots)"/>
+  <rect x="0.5" y="0.5" width="1199" height="299" rx="18" fill="none" stroke="#30363d"/>
+
+  <text x="72" y="128" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="74" font-weight="700" fill="#e6edf3" letter-spacing="-2">ruzhai</text>
+
+  <rect x="74" y="152" width="132" height="4" rx="2" fill="url(#rule)"/>
+
+  <text x="72" y="198" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" fill="#8b949e">Ascend C / CANN · LangGraph / 多智能体 · Python · TypeScript</text>
+
+  <text x="72" y="236" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="22" fill="#c9d1d9">从昇腾 NPU 上的算子实现，到大模型智能体的编排</text>
+
+  <line x1="1002" y1="104" x2="1002" y2="214" stroke="#30363d" stroke-width="1"/>
+
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="17" fill="#6e7681" text-anchor="end">
+    <text x="1128" y="133">01  昇腾算子</text>
+    <text x="1128" y="169">02  模型组件</text>
+    <text x="1128" y="205">03  大模型编排</text>
+  </g>
+</svg>
